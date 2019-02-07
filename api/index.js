@@ -15,7 +15,7 @@ const typeDefs = gql`
     id: ID!
     date: String!
     latitude: String!
-    longitute: String!
+    longitude: String!
     consensus: Consensus
     location: Location
   }
