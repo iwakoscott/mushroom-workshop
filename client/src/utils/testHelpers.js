@@ -1,5 +1,5 @@
 import React from 'react';
-import { MockedProvider } from 'react-apollo';
+import { MockedProvider } from 'react-apollo/test-utils';
 import { render } from 'react-testing-library';
 
 export const renderWithApollo = (

@@ -24,7 +24,7 @@ export function Home(props) {
         <FaTwitter /> @theisomorphic
       </section>
       <br />
-      <Link to="/table">Get Started {'🍄'}</Link>
+      <Link to="/part-one">Get Started {'🍄'}</Link>
     </div>
   );
 }
