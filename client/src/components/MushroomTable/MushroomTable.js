@@ -21,7 +21,7 @@ function _MushroomTable({ data: { getMushroomsFrom, loading } }) {
           alignItems: 'center',
           height: '100vh'
         }}>
-        <CircularProgress size={75} />
+        <CircularProgress size={75} data-testid="spinner" />
       </div>
     );
   return (

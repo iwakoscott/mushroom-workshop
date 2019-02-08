@@ -1,8 +1,9 @@
 import React from 'react';
-import { fireEvent, wait } from 'react-testing-library';
+import { wait } from 'react-testing-library';
 import { renderWithApollo, providerOptions } from '../../../utils/testHelpers';
 import { MushroomTable } from '../';
 import { GET_MUSHROOMS } from '../api/graphql';
+import 'jest-dom/extend-expect';
 
 describe(`<MushroomTable />`, () => {
   const fakeDataA = {
@@ -51,9 +52,17 @@ describe(`<MushroomTable />`, () => {
 
   it(`displays the data in a table`, async () => {
     const options = getProviderOptions();
-    const { container } = renderWithApollo(<MushroomTable />, options);
+    const { container, getByTestId } = renderWithApollo(
+      <MushroomTable />,
+      options
+    );
+
+    const spinnerNode = getByTestId('spinner');
+    expect(spinnerNode).toBeInTheDocument();
 
     await wait(() => 'flush promises');
+
+    expect(spinnerNode).not.toBeInTheDocument();
 
     // DOM Nodes
     const tableRowNodes = container.querySelectorAll('tr');
